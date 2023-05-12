@@ -14,9 +14,11 @@ export class ProductsComponent implements OnInit {
   constructor(private pds: ProductDataService) { }
 
   ngOnInit() {
-    this.products = this.pds.getProducts()
+    this.products = this.pds.getProducts();
   }
 
+  getProductsCategory() {
 
+  }
 
 }
