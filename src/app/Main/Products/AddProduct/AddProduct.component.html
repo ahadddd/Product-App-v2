@@ -20,16 +20,14 @@
 
     <label for="prodName">Vendor:</label>
 
-    <select [(ngModel)]="vendors" formControlName="vendor_id" >
+    <select formControlName="vendor_id" >
       <option *ngFor="let vendor of vendors" [value]="vendor.id" >{{vendor.id}}</option>
     </select>
 
     <label for="catName">Category:</label>
-    <select name="catName">
-      <option value="1">1</option>
-      <option value="1">2</option>
-      <option value="1">3</option>
-      <option value="1">4</option>
+
+    <select formControlName="category_id">
+      <option *ngFor="let cat of categories" [value]="cat.name">{{cat.name}}</option>
     </select>
 
 

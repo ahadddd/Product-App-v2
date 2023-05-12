@@ -4,6 +4,8 @@ import { ProductDataService } from '../ProductData.service';
 import { Product } from 'src/app/Models/product';
 import { Vendor } from 'src/app/Models/vendor';
 import { DataService } from '../../Vendors/Data.service';
+import { Category } from 'src/app/Models/category';
+import { CategoryDataService } from '../../Categories/CategoryData.service';
 
 @Component({
   selector: 'app-AddProduct',
@@ -15,10 +17,12 @@ export class AddProductComponent implements OnInit {
   productData!: FormGroup;
 
   vendors: Array<Vendor> = [];
+  categories: Array<Category> = [];
 
-  constructor(private pds: ProductDataService, private vds: DataService) { }
+  constructor(private pds: ProductDataService, private vds: DataService, private cds: CategoryDataService) { }
 
   ngOnInit() {
+    this.categories = this.cds.getData();
     this.vendors = this.vds.getVendors();
     this.productData = new FormGroup({
       name: new FormControl('', Validators.required),
@@ -39,12 +43,28 @@ export class AddProductComponent implements OnInit {
         name: ctrl['name'].getRawValue(),
         price: ctrl['price'].getRawValue(),
         vendor: this.getVendor(),
-        category: ctrl['category_id'].getRawValue()
+        category: this.getCategory()
       }
       this.pds.setProducts(p1);
+      this.productData.reset();
       alert('Product Added.');
+      console.log(this.pds.products);
+      
     }
 
+  }
+
+  getCategory(): any {
+    let name: any = this.productData.controls['category_id'].getRawValue();
+    let found: any = '';
+    this.categories.forEach((item) => {
+      if (item.name == name) {
+        found = item;
+      }
+    })
+    if (found !== '') {
+      return found;
+    }
   }
 
   getVendor(): any {
@@ -55,7 +75,7 @@ export class AddProductComponent implements OnInit {
         found = item;
       }
     })
-    if (found !== undefined) {
+    if (found !== '') {
       return found;
     }
   }
