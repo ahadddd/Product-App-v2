@@ -34,11 +34,25 @@
       Controls
     </p>
     <button routerLink="add">Add Product</button>
-    <button>Search By ID</button>
+    <button (click)="searchByID()">Search By ID</button>
     <button>Search By Vendor</button>
     <button>Search By Category</button>
     <button>Set Price Filter</button>
     <button>Delete Product By Name</button>
     <button>Delete Product By ID</button>
+    <button (click)="reset()">Reset</button>
+  </div>
+</div>
+
+<div *ngIf="modal" class="modal">
+  <div class="window">
+    <label for="searchID">Enter ID</label>
+    <input
+      type="number"
+      placeholder="Enter ID for Product..."
+      name="searchID"
+      [(ngModel)]="searchID"
+    />
+    <button (click)="searchByID()">Search</button>
   </div>
 </div>
