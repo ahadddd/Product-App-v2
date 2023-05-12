@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/Models/product';
+import { ProductDataService } from '../ProductData.service';
 
 @Component({
   selector: 'app-Products',
@@ -10,11 +11,10 @@ export class ProductsComponent implements OnInit {
 
   products: Array<Product> = [];
 
-  counter: number = 0;
-
-  constructor() { }
+  constructor(private pds: ProductDataService) { }
 
   ngOnInit() {
+    this.products = this.pds.getProducts()
   }
 
 

@@ -1,3 +1,4 @@
+import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
@@ -8,6 +9,7 @@ import { AddProductComponent } from './AddProduct/AddProduct.component';
 @NgModule({
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     RouterModule.forChild([
       {
         path: '',
@@ -19,6 +21,6 @@ import { AddProductComponent } from './AddProduct/AddProduct.component';
       }
     ])
   ],
-  declarations: [ProductsComponent]
+  declarations: [ProductsComponent, AddProductComponent]
 })
 export class ProductsModule { }

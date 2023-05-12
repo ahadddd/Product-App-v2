@@ -37,6 +37,8 @@ export class AddVendorComponent implements OnInit {
       }
       this.ds.setVendors(v1);
       alert('Vendor Added.')
+      console.log(this.ds.vendors);
+      
       
     }
     

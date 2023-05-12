@@ -1,5 +1,16 @@
 <div class="container">
-  <h1>
-    Add Category Works!
-  </h1>
+  <form [formGroup]="catData" (ngSubmit)="saveCategory()">
+
+    <label for="name">Category Name: </label>
+    <input type="text" placeholder="Enter Category Name..." name="name" formControlName="name">
+
+    <label for="status">Status: </label>
+    <select formControlName="status" name="status">
+      <option value="active">Active</option>
+      <option value="inactive">Inactive</option>
+    </select>
+    
+
+    <button type="submit">Add Category</button>
+  </form>
 </div>
