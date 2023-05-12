@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from '../Data.service';
 
 @Component({
   selector: 'app-AddProduct',
@@ -8,15 +7,10 @@ import { DataService } from '../Data.service';
 })
 export class AddProductComponent implements OnInit {
 
-  constructor(private ds: DataService) { }
+  constructor() { }
 
   ngOnInit() {
   }
-
-  increment() {
-    this.ds.counter++;
-  }
-
 
 
 }

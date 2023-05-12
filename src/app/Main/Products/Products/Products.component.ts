@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/Models/product';
-import { DataService } from '../Data.service';
 
 @Component({
   selector: 'app-Products',
@@ -13,10 +12,9 @@ export class ProductsComponent implements OnInit {
 
   counter: number = 0;
 
-  constructor(private ds: DataService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.counter = this.ds.getCount();
   }
 
 

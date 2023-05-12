@@ -1,7 +1,23 @@
 <div class="container">
-  <h1>
-    Vendors Works!
-  </h1>
+  <table>
+    <thead>
+      <tr>
+        <td>ID</td>
+        <td>First Name</td>
+        <td>Last Name</td>
+        <td>Contact Number</td>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let vendor of vendors">
+        <td>{{ vendor.id }}</td>
+        <td>{{ vendor.first_name }}</td>
+        <td>{{ vendor.last_name }}</td>
+        <td>{{ vendor.contact_number }}</td>
+      </tr>
+    </tbody>
+  </table>
 
   <button routerLink="add">Add Vendor</button>
 </div>
