@@ -1,8 +1,56 @@
 div.container {
-    height: 500px;
+    height: 700px;
     width: 100%;
-    border: 1px solid;
+    background-color: antiquewhite;
     position: absolute;
     top: 80px;
-    left: 0px
+    left: 0px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    align-content: flex-start;
+    flex-wrap: wrap;
+}
+
+table {
+    background-color: white;
+    position: relative;
+    top: 10px; left: 10px;
+    border: 1px solid;
+    border-collapse: collapse;
+    width: 35%;
+}
+
+#tData {
+    border: 1px solid;
+    border-collapse: collapse;
+    padding: 10px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+}
+td{
+    border: 1px solid;
+    border-collapse: collapse;
+    padding: 15px;
+    padding-left: 10px;
+    
+}
+
+thead {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 25px;
+    font-weight: 400;
+}
+
+button{
+    position: absolute;
+    bottom: 10px; left: 10px;
+    width: 150px;
+    height: 50px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-size: 20px; font-weight: 400;
+    padding: 10px;
+    background-color: rgb(58, 126, 58); color: white;
+    border: none; border-radius: 5px;
 }

@@ -36,10 +36,9 @@ export class AddVendorComponent implements OnInit {
         contact_number: ctrl['c_number'].getRawValue()
       }
       this.ds.setVendors(v1);
-      alert('Vendor Added.')
+      alert('Vendor Added.');
+      this.venData.reset();
       console.log(this.ds.vendors);
-      
-      
     }
     
   }

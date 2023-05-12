@@ -36,6 +36,7 @@ export class AddCategoryComponent implements OnInit {
       }
       this.cds.setData(c1);
       alert('Category Added.');
+      this.catData.reset();
       console.log(this.cds.categories);
       
     }

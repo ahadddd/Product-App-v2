@@ -26,6 +26,21 @@ export class CategoryDataService {
       "id": 50,
       "name": "Footwear",
       "status": "active"
+    },
+    {
+      "id": 56,
+      "name": "Drinks",
+      "status": "active"
+    },
+    {
+      "id": 69,
+      "name": "Hardware",
+      "status": "active"
+    },
+    {
+      "id": 44,
+      "name": "Electronics",
+      "status": "active"
     }
   ]
 

@@ -30,6 +30,18 @@ export class DataService {
       "first_name": "Hassan",
       "last_name": "Ahmed",
       "contact_number": 3331234567
+    },
+    {
+      "id": 5,
+      "first_name": "Abdul",
+      "last_name": "Hadi",
+      "contact_number": 3214567890
+    },
+    {
+      "id": 6,
+      "first_name": "Abdul",
+      "last_name": "Munim",
+      "contact_number": 3334445556
     }
   ];
 

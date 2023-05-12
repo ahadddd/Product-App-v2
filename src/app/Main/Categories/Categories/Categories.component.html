@@ -1,8 +1,23 @@
 <div class="container">
-  <h1>
-    Categories Works!
-  </h1>
+  <table>
+    <thead
+      
+    >
+      <tr>
+        <td>ID</td>
+        <td>Name</td>
+        <td>Status</td>
+      </tr>
+    </thead>
 
-  <button routerLink="add" >Add Category</button>
+    <tbody>
+      <tr *ngFor="let category of categories">
+        <td id="tData">{{ category.id }}</td>
+        <td id="tData">{{ category.name }}</td>
+        <td id="tData">{{ category.status }}</td>
+      </tr>
+    </tbody>
+  </table>
 
+  <button routerLink="add">Add Category</button>
 </div>
