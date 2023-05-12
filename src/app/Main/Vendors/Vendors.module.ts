@@ -1,3 +1,4 @@
+import { ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { VendorsComponent } from '../Vendors/Vendors/Vendors.component';
@@ -8,6 +9,7 @@ import { AddVendorComponent } from './AddVendor/AddVendor.component';
 @NgModule({
   imports: [
     CommonModule,
+    ReactiveFormsModule,
     RouterModule.forChild([
       {
         path: '',
@@ -19,6 +21,6 @@ import { AddVendorComponent } from './AddVendor/AddVendor.component';
       }
     ])
   ],
-  declarations: [VendorsComponent]
+  declarations: [VendorsComponent, AddVendorComponent]
 })
 export class VendorsModule { }

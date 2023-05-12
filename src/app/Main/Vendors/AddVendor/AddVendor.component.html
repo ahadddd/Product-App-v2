@@ -1,5 +1,16 @@
 <div class="container">
-  <h1>
-    Add Vendors Works!
-  </h1>
+  <form [formGroup]="venData" (ngSubmit)="save()" >
+
+    <label for="f_name">First Name</label>
+    <input type="text" placeholder="Enter First Name..." name="f_name" formControlName="f_name" >
+
+    <label for="l_name">Last Name</label>
+    <input type="text" placeholder="Enter Last Name..." name="l_name" formControlName="l_name" >
+
+    <label for="c_number">Contact Number</label>
+    <input type="number" placeholder="Enter Contact Number..." name="f_name" formControlName="c_number" >
+
+    <button type="submit">Add Vendor</button>
+
+  </form>
 </div>
