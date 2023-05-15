@@ -37,7 +37,7 @@
     <button (click)="searchByID()">Search By ID</button>
     <button (click)="getProductVendor()">Search By Vendor</button>
     <button (click)="getProductsCategory()">Search By Category</button>
-    <button>Set Price Filter</button>
+    <button (click)="setPriceFilter()" >Set Price Filter</button>
     <button>Delete Product By Name</button>
     <button>Delete Product By ID</button>
     <button (click)="reset()">Reset</button>
@@ -81,5 +81,15 @@
       </option>
     </select>
     <button (click)="getProductVendor()">Search</button>
+  </div>
+</div>
+
+<!--MODAL THAT OPENS TO SEARCH PRODUCTS BY PRICE FILTER-->
+<div *ngIf="priceModal" class="modal">
+  <div class="window">
+    <label>Enter Price: </label>
+    <input type="number" [(ngModel)]="priceFilter" />
+
+    <button (click)="setPriceFilter()">Search</button>
   </div>
 </div>

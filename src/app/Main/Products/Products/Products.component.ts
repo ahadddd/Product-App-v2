@@ -16,12 +16,14 @@ export class ProductsComponent implements OnInit {
   IDmodal: boolean = false;
   categoryModal: boolean = false;
   vendorModal: boolean = false;
+  priceModal: boolean = false;
   products: Array<Product> = [];
   searchID: any;
   searchCategory: any;
   searchVendor: any;
   categories: Array<Category> = [];
   vendors: Array<Vendor> = [];
+  priceFilter: number = 0;
 
   constructor(private pds: ProductDataService, private cds: CategoryDataService, private vds: DataService) { }
 
@@ -74,7 +76,7 @@ export class ProductsComponent implements OnInit {
       if (items.length == 0) {
         alert('No items found for seleted category.')
       }
-      else{
+      else {
         this.products = items;
       }
     }
@@ -103,6 +105,28 @@ export class ProductsComponent implements OnInit {
     }
     else {
       this.vendorModal = !this.vendorModal;
+    }
+  }
+
+  setPriceFilter() {
+    let items: any = [];
+    if (this.priceModal) {
+      console.log(this.priceFilter);
+      this.products.forEach((item) => {
+        if (item.price <= this.priceFilter) {
+          items.push(item);
+        }
+      })
+      if (items.length == 0) {
+        alert('No products found against price filter.')
+      }
+      else {
+        this.products = items;
+        this.priceModal = !this.priceModal
+      }
+    }
+    else {
+      this.priceModal = !this.priceModal;
     }
   }
 }
