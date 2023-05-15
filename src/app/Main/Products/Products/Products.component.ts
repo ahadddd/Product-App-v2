@@ -17,10 +17,12 @@ export class ProductsComponent implements OnInit {
   categoryModal: boolean = false;
   vendorModal: boolean = false;
   priceModal: boolean = false;
+  delNameModal: boolean = false;
   products: Array<Product> = [];
   searchID: any;
   searchCategory: any;
   searchVendor: any;
+  delName: any;
   categories: Array<Category> = [];
   vendors: Array<Vendor> = [];
   priceFilter: number = 0;
@@ -53,7 +55,8 @@ export class ProductsComponent implements OnInit {
         this.IDmodal = !this.IDmodal;
       }
       else {
-        alert('Product not found.')
+        alert('Product not found.');
+        this.IDmodal = !this.IDmodal;
       }
     }
     else {
@@ -74,10 +77,12 @@ export class ProductsComponent implements OnInit {
       })
       console.log(items);
       if (items.length == 0) {
-        alert('No items found for seleted category.')
+        alert('No items found for seleted category.');
+        this.categoryModal = !this.categoryModal;
       }
       else {
         this.products = items;
+        this.categoryModal = !this.categoryModal;
       }
     }
     else {
@@ -96,7 +101,9 @@ export class ProductsComponent implements OnInit {
         }
       })
       if (items.length == 0) {
-        alert('No items found against Vendor.')
+        alert('No items found against Vendor.');
+        this.vendorModal = !this.vendorModal;
+
       }
       else {
         this.products = items;
@@ -119,14 +126,39 @@ export class ProductsComponent implements OnInit {
       })
       if (items.length == 0) {
         alert('No products found against price filter.')
+        this.priceModal = !this.priceModal;
       }
       else {
         this.products = items;
-        this.priceModal = !this.priceModal
+        this.priceModal = !this.priceModal;
       }
     }
     else {
       this.priceModal = !this.priceModal;
+    }
+  }
+
+  DeleteProductName() {
+    let found: any = false;
+    if(this.delNameModal) {
+      // console.log(this.delName);
+      this.products.forEach((item, index) => {
+        if(item.name == this.delName) {
+          this.products.splice(index, 1);
+          found = true;
+        }
+      })
+      if(found == false){
+        alert('Product not found.');
+        this.delNameModal = !this.delNameModal;
+      }
+      else{
+        alert('Product Deleted.');
+        this.delNameModal = !this.delNameModal;
+      }
+    }
+    else{
+      this.delNameModal = !this.delNameModal;
     }
   }
 }

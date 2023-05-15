@@ -38,7 +38,7 @@
     <button (click)="getProductVendor()">Search By Vendor</button>
     <button (click)="getProductsCategory()">Search By Category</button>
     <button (click)="setPriceFilter()" >Set Price Filter</button>
-    <button>Delete Product By Name</button>
+    <button (click)="DeleteProductName()">Delete Product By Name</button>
     <button>Delete Product By ID</button>
     <button (click)="reset()">Reset</button>
   </div>
@@ -93,3 +93,14 @@
     <button (click)="setPriceFilter()">Search</button>
   </div>
 </div>
+
+<!--MODAL THAT OPENS TO DELETE PRODUCT BY NAME-->
+<div *ngIf="delNameModal" class="modal">
+  <div class="window">
+    <label>Enter Name to Delete Product: </label>
+    <input type="text" [(ngModel)]="delName" />
+
+    <button (click)="DeleteProductName()">Delete</button>
+  </div>
+</div>
+
