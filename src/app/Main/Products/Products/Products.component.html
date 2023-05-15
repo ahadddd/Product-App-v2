@@ -63,7 +63,7 @@
   <div class="window">
     <label>Enter Category Name: </label>
     <select [(ngModel)]="searchCategory">
-      <option *ngFor="let item of categories" [value]="item.name">
+      <option *ngFor="let item of categories" [value]="item.id">
         {{ item.name }}
       </option>
     </select>

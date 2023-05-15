@@ -60,13 +60,23 @@ export class ProductsComponent implements OnInit {
   }
 
   getProductsCategory() {
-    let found: boolean = false;
+    let items: any = [];
     if (this.categoryModal) {
       // this.categoryModal = true;
       console.log(this.searchCategory);
       this.categoryModal = !this.categoryModal;
-
-
+      this.products.forEach((item) => {
+        if (item.category.id == this.searchCategory) {
+          items.push(item);
+        }
+      })
+      console.log(items);
+      if (items.length == 0) {
+        alert('No items found for seleted category.')
+      }
+      else{
+        this.products = items;
+      }
     }
     else {
       this.categoryModal = !this.categoryModal;
@@ -79,19 +89,19 @@ export class ProductsComponent implements OnInit {
       console.log(this.searchVendor);
       this.vendorModal = !this.vendorModal;
       this.products.forEach((item) => {
-        if(item.vendor.id == this.searchVendor) {
+        if (item.vendor.id == this.searchVendor) {
           items.push(item);
         }
       })
-      if(items.length == 0) {
+      if (items.length == 0) {
         alert('No items found against Vendor.')
       }
-      else{
+      else {
         this.products = items;
         console.log(this.products);
       }
     }
-    else{
+    else {
       this.vendorModal = !this.vendorModal;
     }
   }
