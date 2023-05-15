@@ -35,8 +35,8 @@
     </p>
     <button routerLink="add">Add Product</button>
     <button (click)="searchByID()">Search By ID</button>
-    <button>Search By Vendor</button>
-    <button>Search By Category</button>
+    <button (click)="getProductVendor()">Search By Vendor</button>
+    <button (click)="getProductsCategory()">Search By Category</button>
     <button>Set Price Filter</button>
     <button>Delete Product By Name</button>
     <button>Delete Product By ID</button>
@@ -44,7 +44,8 @@
   </div>
 </div>
 
-<div *ngIf="modal" class="modal">
+<!--MODAL THAT OPENS TO SEARCH PRODUCT BY ID-->
+<div *ngIf="IDmodal" class="modal">
   <div class="window">
     <label for="searchID">Enter ID</label>
     <input
@@ -54,5 +55,31 @@
       [(ngModel)]="searchID"
     />
     <button (click)="searchByID()">Search</button>
+  </div>
+</div>
+
+<!--MODAL THAT OPENS TO SEARCH PRODUCT BY CATEGORY-->
+<div *ngIf="categoryModal" class="modal">
+  <div class="window">
+    <label>Enter Category Name: </label>
+    <select [(ngModel)]="searchCategory">
+      <option *ngFor="let item of categories" [value]="item.name">
+        {{ item.name }}
+      </option>
+    </select>
+    <button (click)="getProductsCategory()">Search</button>
+  </div>
+</div>
+
+<!--MODAL THAT OPENS TO SEARCH PRODUCT BY VENDOR-->
+<div *ngIf="vendorModal" class="modal">
+  <div class="window">
+    <label>Enter Vendor Name: </label>
+    <select [(ngModel)]="searchVendor">
+      <option *ngFor="let vendor of vendors" [value]="vendor.id">
+        {{ vendor.first_name + " " + vendor.last_name }}
+      </option>
+    </select>
+    <button (click)="getProductVendor()">Search</button>
   </div>
 </div>

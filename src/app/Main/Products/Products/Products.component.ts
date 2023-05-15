@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/Models/product';
 import { ProductDataService } from '../ProductData.service';
+import { Category } from 'src/app/Models/category';
+import { CategoryDataService } from '../../Categories/CategoryData.service';
+import { Vendor } from 'src/app/Models/vendor';
+import { DataService } from '../../Vendors/Data.service';
 
 @Component({
   selector: 'app-Products',
@@ -9,14 +13,22 @@ import { ProductDataService } from '../ProductData.service';
 })
 export class ProductsComponent implements OnInit {
 
-  modal: boolean = false;
+  IDmodal: boolean = false;
+  categoryModal: boolean = false;
+  vendorModal: boolean = false;
   products: Array<Product> = [];
   searchID: any;
+  searchCategory: any;
+  searchVendor: any;
+  categories: Array<Category> = [];
+  vendors: Array<Vendor> = [];
 
-  constructor(private pds: ProductDataService) { }
+  constructor(private pds: ProductDataService, private cds: CategoryDataService, private vds: DataService) { }
 
   ngOnInit() {
     this.products = this.pds.getProducts();
+    this.categories = this.cds.getData();
+    this.vendors = this.vds.getVendors();
   }
 
   reset() {
@@ -26,29 +38,61 @@ export class ProductsComponent implements OnInit {
 
   searchByID() {
     let found: boolean = false;
-    if(this.modal){
+    if (this.IDmodal) {
       console.log(this.searchID);
       this.products.forEach((item) => {
-        if(item.id == this.searchID) {
+        if (item.id == this.searchID) {
           this.products = [];
           this.products.push(item);
           found = true;
         }
       })
-      if(found){
-        this.modal = !this.modal;
+      if (found) {
+        this.IDmodal = !this.IDmodal;
       }
-      else{
+      else {
         alert('Product not found.')
       }
     }
-    else{
-      this.modal = !this.modal;
+    else {
+      this.IDmodal = !this.IDmodal;
     }
   }
 
   getProductsCategory() {
+    let found: boolean = false;
+    if (this.categoryModal) {
+      // this.categoryModal = true;
+      console.log(this.searchCategory);
+      this.categoryModal = !this.categoryModal;
 
+
+    }
+    else {
+      this.categoryModal = !this.categoryModal;
+    }
   }
 
+  getProductVendor() {
+    let items: any = [];
+    if (this.vendorModal) {
+      console.log(this.searchVendor);
+      this.vendorModal = !this.vendorModal;
+      this.products.forEach((item) => {
+        if(item.vendor.id == this.searchVendor) {
+          items.push(item);
+        }
+      })
+      if(items.length == 0) {
+        alert('No items found against Vendor.')
+      }
+      else{
+        this.products = items;
+        console.log(this.products);
+      }
+    }
+    else{
+      this.vendorModal = !this.vendorModal;
+    }
+  }
 }
