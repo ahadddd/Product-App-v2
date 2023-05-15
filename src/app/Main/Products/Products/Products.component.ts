@@ -18,11 +18,13 @@ export class ProductsComponent implements OnInit {
   vendorModal: boolean = false;
   priceModal: boolean = false;
   delNameModal: boolean = false;
+  delIDModal: boolean = false;
   products: Array<Product> = [];
   searchID: any;
   searchCategory: any;
   searchVendor: any;
   delName: any;
+  delID: any;
   categories: Array<Category> = [];
   vendors: Array<Vendor> = [];
   priceFilter: number = 0;
@@ -140,25 +142,48 @@ export class ProductsComponent implements OnInit {
 
   DeleteProductName() {
     let found: any = false;
-    if(this.delNameModal) {
+    if (this.delNameModal) {
       // console.log(this.delName);
       this.products.forEach((item, index) => {
-        if(item.name == this.delName) {
+        if (item.name == this.delName) {
           this.products.splice(index, 1);
           found = true;
         }
       })
-      if(found == false){
+      if (found == false) {
         alert('Product not found.');
         this.delNameModal = !this.delNameModal;
       }
-      else{
+      else {
         alert('Product Deleted.');
         this.delNameModal = !this.delNameModal;
       }
     }
-    else{
+    else {
       this.delNameModal = !this.delNameModal;
+    }
+  }
+
+  DeleteProductID() {
+    let found: any = false;
+    if (this.delIDModal) {
+      console.log(this.delID);
+      this.delIDModal = !this.delIDModal;
+      this.products.forEach((item, index) => {
+        if (item.id == this.delID) {
+          this.products.splice(index, 1);
+          found = true;
+        }
+      });
+      if (found == false) {
+        alert('Product not found against ID.');
+      }
+      else {
+        alert('Product Deleted.')
+      }
+    }
+    else {
+      this.delIDModal = !this.delIDModal;
     }
   }
 }
