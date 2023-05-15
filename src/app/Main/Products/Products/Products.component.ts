@@ -58,7 +58,6 @@ export class ProductsComponent implements OnInit {
       }
       else {
         alert('Product not found.');
-        this.IDmodal = !this.IDmodal;
       }
     }
     else {
@@ -104,7 +103,6 @@ export class ProductsComponent implements OnInit {
       })
       if (items.length == 0) {
         alert('No items found against Vendor.');
-        this.vendorModal = !this.vendorModal;
 
       }
       else {
